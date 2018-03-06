@@ -23,8 +23,13 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
     @Input() useBootstrap: boolean = true;
     @Input() prefix:       string  = '';
 
-    public _urls: string[];
-    public _routerSubscription: any;
+    public _urls: string[] = new Array();
+    public _routerSubscription: any = this.router.events.subscribe((navigationEnd:NavigationEnd) => {
+        if (navigationEnd instanceof NavigationEnd) {
+            this._urls.length = 0; //Fastest way to clear out array
+            this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
+        }
+    });
 
     constructor(
         private router: Router,
@@ -32,19 +37,10 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
     ) {}
 
     ngOnInit(): void {
-        this._urls = new Array();
 
         if (this.prefix.length > 0) {
             this._urls.unshift(this.prefix);
         }
-
-        this._routerSubscription = this.router.events.subscribe((navigationEnd:NavigationEnd) => {
-
-           if (navigationEnd instanceof NavigationEnd) {
-                this._urls.length = 0; //Fastest way to clear out array
-                this.generateBreadcrumbTrail(navigationEnd.urlAfterRedirects ? navigationEnd.urlAfterRedirects : navigationEnd.url);
-            }
-        });
     }
 
     ngOnChanges(changes: any): void {
