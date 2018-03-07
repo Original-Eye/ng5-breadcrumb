@@ -1,10 +1,10 @@
 export default {
     input: 'dist/index.js',
     output: {
-      file: 'dist/bundles/breadcrumb.umd.js',
+      file: 'dist/breadcrumb.umd.js',
       format: 'umd',
       name: 'ng.breadcrumb',
-      sourcemap: false
+      sourcemap: true
     },
     globals: {
       '@angular/core': 'ng.core',

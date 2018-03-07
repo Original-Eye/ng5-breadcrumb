@@ -1,7 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/bundles
+/dist/node_modules
+/dist/e2e
+/dist/src/environments
+/dist/src/*.js
+/dist/src/*.js.map
+/dist/src/*.*.json
+/dist/src/app/*.*
+/dist/src/app/components/breadcrumb/*.ngfactory.*
+/dist/src/app/components/breadcrumb/*.ngsummary.*
 /tmp
 /out-tsc
 

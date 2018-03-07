@@ -1,11 +1,12 @@
 {
-  "name": "@akiocloud/ng5-breadcrumb",
+  "name": "ng5-breadcrumb",
   "version": "0.0.7",
   "license": "MIT",
+  "main": "dist/breadcrumb.umd.js",
   "scripts": {
     "transpile": "ngc",
     "package": "rollup -c",
-    "minify": "uglifyjs dist/bundles/breadcrumb.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/breadcrumb.umd.min.js",
+    "minify": "uglifyjs dist/breadcrumb.umd.js --screw-ie8 --compress --mangle --comments --output dist/breadcrumb.umd.min.js",
     "build": "npm run transpile && npm run package && npm run minify"
   },
   "private": true,
