@@ -1,6 +1,12 @@
 # ng5-breadcrumb
 
-This component is a fork from https://github.com/gmostert/ng5-breadcrumb.
+This component is a fork from https://github.com/akiocloud/ng5-breadcrumb.
+
+This component has been updated to fix the issue where the component loads after the NavigationEnd Event has fired.
+This happens on initial load and results in a blank breadcrumb.
+Subsequent navigation renders the breadcrumb successfully.
+See https://github.com/gmostert/ng2-breadcrumb/issues/74 and https://github.com/angular/angular/issues/17473 for details of the issue.  
+
 The component has been updated to work with Angular 5 and Angular CLI 1.5.
 
 This component generates a breadcrumb trail, as you navigate to child routes using the @angular/router. It interprets the browser URL of a navigate request, 
